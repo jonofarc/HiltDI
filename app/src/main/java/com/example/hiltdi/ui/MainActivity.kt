@@ -3,18 +3,21 @@ package com.example.hiltdi.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hiltdi.R
-import com.example.hiltdi.classes.EnglishPerson
-import com.example.hiltdi.classes.SpanishPerson
+import com.example.hiltdi.classes.*
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    @EnglishQualifier
     @Inject
-    lateinit var englishPerson: EnglishPerson
+    lateinit var englishPerson: Person
+
+    @SpanishQualifier
     @Inject
-    lateinit var spanishPerson: SpanishPerson
+    lateinit var spanishPerson: Person
+
 
 
 
@@ -29,8 +32,9 @@ class MainActivity : AppCompatActivity() {
     private fun speak() {
 
 
-        spanishPerson.speakSpanish()
-        spanishPerson.englishPerson.speakEnglish()
+        englishPerson.speakLanguage()
+
+        spanishPerson.speakLanguage()
 
     }
 }

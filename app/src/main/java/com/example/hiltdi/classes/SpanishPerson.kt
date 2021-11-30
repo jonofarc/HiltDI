@@ -3,9 +3,10 @@ package com.example.hiltdi.classes
 import android.util.Log
 import javax.inject.Inject
 
-class SpanishPerson @Inject constructor(val englishPerson: EnglishPerson) {
+class SpanishPerson @Inject constructor():Person {
     var TAG = SpanishPerson::class.java.simpleName + "_TAG"
-    fun speakSpanish(){
+
+    override fun speakLanguage() {
         Log.i(TAG,"Despacito señor")
     }
 
